@@ -1,0 +1,248 @@
+
+/***common elements*****************************/
+
+#global{
+	width:1024px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:-8px;
+/*	box-shadow:0px 0px 20px 5px #A0A0A0; */
+}
+
+#header{
+	width:1024px;
+	height:110px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:-8px;
+	background:#071F33;
+	border-radius: 10px;
+	box-shadow:0px 0px 15px 5px #A0A0A0;
+}
+
+#header-text{
+	font-family:helvetica;
+	font-size:58px;
+	font-weight:bold;
+	color:#0B3351;
+}
+
+#header-logout{
+	font-family:helvetica;
+	font-size:14px;
+	font-weight:bold;
+	color:#788C99;
+	float:right;
+	position:relative;
+	top:10px;
+	right:10px;
+}
+
+#menu{
+	position:relative;
+	left:10px;
+	font-family:helvetica;
+	font-weight:bold;
+	color:#788C99;
+}
+
+#menu td{
+	width:80px;
+}
+
+a:link {text-decoration:none;color:inherit;}
+a:visited {text-decoration:none;color:inherit;}
+
+#content{
+	height:auto;
+	width:1024px;
+	position:relative;
+	top:8px;
+	margin-left:auto;
+	margin-right:auto;
+	background:#64737F;
+	border-radius: 10px;
+}
+
+/***index***************************************/
+
+#login-box{
+	position:relative;
+	top:15px;
+	left:20px;
+	font-family:calibri;
+	font-size:18px;
+	color:#788C99;
+}
+
+/***center table present on main pages**********/
+
+#content-center{
+	height:400px;
+	width:800px;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	font-family:helvetica;
+	font-size:10px;
+}
+
+table#content-table{
+	position:relative;
+}
+
+table#content-table td{
+	font-family:calibri;
+	text-align:center;
+	font-size:12px;
+	height:22px;
+}
+
+#content-header1{
+	position:relative;
+	top:7px;
+	font-size:16px;
+	font-weight:bold;
+	color:#788C99;
+	height:40px;
+}
+
+.tbl-row td{
+	height:26px;
+	text-align:center;
+	border-bottom:1px solid black;
+	padding:0px;
+	background:#4682B4;
+	color:white;
+}
+
+.input-table-number{
+	width:45px;
+	text-align:center;
+	font-size:12px;
+}
+
+.row0{
+	background-color:Gainsboro;
+}
+
+.row1{
+	background-color:Silver;
+}
+
+/***items page**********************************/
+
+.select-user{
+	position:relative;
+	top:14px;
+	right:10px;
+	float:right;
+	width:160px;
+	height:20px;
+}
+
+.submit-items{
+	position:relative;
+	top:8px;
+	float:right;
+	width:90px;
+	height:32px;
+	text-align:center;
+}
+
+/***lends***************************************/
+
+.red{
+	color:red;
+}
+
+/***new / edit member***************************/
+
+#d-edit-member{
+	position:relative;
+	top:30px;
+	left:0px;
+	font-family:calibri;
+	font-size:18px;
+	color:#788C99;
+}
+
+/***misc items**********************************/
+
+.field-name{
+	width:120px;
+	float:left;
+}
+
+/***inputs, submits and buttons*****************/
+
+input[type="text"]{
+	height:22px;
+	width:160px;
+	background:#104B75;
+	font-family:calibri;
+	font-size:14px;
+	color:#FFF4FF;
+	border-radius:4px;
+	border:none;
+	padding:0px 5px 0px;
+}
+
+input[type="password"]{
+	height:22px;
+	width:160px;
+	background:#104B75;
+	font-family:calibri;
+	font-size:14px;
+	color:#FFF4FF;
+	border-radius:4px;
+	border:none;
+	padding:0px 5px 0px;
+}
+
+.button1{
+	height:26px;
+	width:auto;
+	min-width:60px;
+	background:#104B75;
+	font-family:calibri;
+	font-size:14px;
+	color:#FFF4FF;
+	border-radius:4px;
+	border:1px solid #1978B7;
+	text-align:center;
+}
+
+.button1:active{
+	background:#0B3351;
+}
+
+.button1:hover{
+	cursor:hand;
+}
+
+input[type="submit"]{
+	height:26px;
+	width:auto;
+	min-width:60px;
+	background:#104B75;
+	font-family:calibri;
+	font-size:14px;
+	color:#FFF4FF;
+	border-radius:4px;
+	border:1px solid #1978B7;
+	text-align:center;
+}
+
+input[type="submit"]:active{
+	background:#0B3351;
+}
+
+input[type="submit"]:hover{
+	cursor:hand;
+}
+
+.table-form tr{
+	border:1px solid white;
+	color:white;
+}
