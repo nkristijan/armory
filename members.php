@@ -1,7 +1,7 @@
 <?php
 include 'scripts/admin_login.php'; 
 $title = "Članovi";
-include 'html/html_top.php'; 
+include 'html/administration_html_top.php'; 
 ?>
 
 	<?php

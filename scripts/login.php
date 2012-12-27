@@ -25,7 +25,7 @@
 			
 			if ($accountQuery[0] == 1) {
 				$_SESSION['user'] = 1;
-				header("Location: ../items.php");
+				header("Location: ../admin_lends.php");
 			}
 			else{
 				$_SESSION['user'] = 0;
