@@ -13,8 +13,11 @@
 			<label id="header-logout"><a href="edit_member_form.php"><?php names();?></a></label>
 		<div>
 			<table id="menu">
-				<tr><td><a href="user_home.php">Posudbe</a></td>
-				<td style="width:130px;"><a href="transaction.php">Prijenos opreme</a></td></tr>
+				<tr><td><a href="user_lends.php">Posudbe</a></td>
+				<?php 
+				if($_SESSION["user"]==1) echo "<td style=\"color:red\"><a href=\"items.php\">Administracija</a></td>";
+				?>
+				</tr>
 			</table>
 		</div>
 		</div>

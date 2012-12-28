@@ -1,9 +1,7 @@
 <?php
 $title = "Moje Posudbe";
-
 session_start();
-if($_SESSION["user"]==0) include 'html/user_html_top.php';
-else if($_SESSION["user"]==1) include 'html/admin_html_top.php';
+include 'html/user_html_top.php';
 ?>
 
 	<?php

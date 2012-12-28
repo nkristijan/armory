@@ -4,7 +4,6 @@ $title = "Oružarstvo - Izmijeni korisnika";
 
 	<?php
 
-
 		session_start();
 		if(!$_SESSION['logon']) {
 			header("Location: error_pages/access_denied.html");
@@ -20,7 +19,7 @@ $title = "Oružarstvo - Izmijeni korisnika";
 				include 'html/administration_html_top.php';
 				$data = getUserData($_GET["id"]);}
 			else {
-				include 'html/admin_html_top.php';
+				include 'html/user_html_top.php';
 				$data = getUserData($_SESSION['userId']);
 			} 
 		}
