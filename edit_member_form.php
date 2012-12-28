@@ -1,12 +1,30 @@
 <?php
-include 'scripts/admin_login.php'; 
 $title = "Oružarstvo - Izmijeni korisnika";
-include 'html/administration_html_top.php'; 
 ?>
 
-	<?php	
-		include 'scripts/armory_utils.php';
-		$data = getUserData($_GET["id"]);
+	<?php
+
+
+		session_start();
+		if(!$_SESSION['logon']) {
+			header("Location: error_pages/access_denied.html");
+			die();
+		}
+		else if ($_SESSION['user'] == 0){
+			include 'html/user_html_top.php';
+			$data = getUserData($_SESSION['userId']);
+		}
+		else if ($_SESSION['user'] == 1){
+			
+			if(isset($_GET["id"])){
+				include 'html/administration_html_top.php';
+				$data = getUserData($_GET["id"]);}
+			else {
+				include 'html/admin_html_top.php';
+				$data = getUserData($_SESSION['userId']);
+			} 
+		}
+			
 		
 		echo "<div id=\"d-edit-member\">";
 		echo "<form action=\"scripts/edit_member.php\" method=\"post\">";
@@ -24,16 +42,6 @@ include 'html/administration_html_top.php';
 				</tr><tr>
 				<td colspan=2 style=\"text-align:right;\"><input type =\"submit\" value=\"Spremi\" ></td>
 				</tr></table>";
-		
-		
-// 		echo "<form action=\"scripts/edit_member.php\" method=\"post\">";
-// 		echo "<input type=\"text\" value=\"" . $data['m_id'] . "\" name=\"id\" hidden /><br>";
-// 		echo "<span class=\"field-name\">Ime: </span> <input type=\"text\" value=\"" . $data['first_name'] . "\" name=\"firstname\" /><br>";
-// 		echo "<span class=\"field-name\">Prezime: </span> <input type=\"text\" value=\"" . $data['last_name'] . "\" name=\"lastname\" /><br>";
-// 		echo "<span class=\"field-name\">Username: </span> <input type=\"text\" value=\"" . $data['username'] . "\" name=\"username\" /><br>";
-// 		echo "<span class=\"field-name\">E-mail: </span> <input type=\"text\" value=\"" . $data['email'] . "\" name=\"email\" /><br>";
-// 		echo "<span class=\"field-name\">Mobitel: </span> <input type=\"text\" value=\"" . $data['phone_number'] . "\" name=\"phonenum\" /><br>";
-// 		echo "<input type=\"submit\" value=\"Spremi\"/>";
 		
 		
 		echo "</form></div>";		

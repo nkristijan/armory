@@ -5,7 +5,6 @@ include 'html/administration_html_top.php';
 ?>
 
 	<?php
-		include 'scripts\armory_utils.php';
 		include 'scripts\db_con.php';
 		
 		echo "<div id=\"content-header1\">

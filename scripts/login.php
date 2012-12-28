@@ -12,7 +12,7 @@
 	else{
 		include 'db_con.php';
 		
-		$idQuery = mysql_query("SELECT m_id FROM members WHERE username = '$username' AND password = '$password'", $con);
+		$idQuery = mysql_query("SELECT m_id, account_admin FROM members WHERE username = '$username' AND password = '$password'", $con);
 		$loginResult = mysql_num_rows($idQuery); 
 		$id = mysql_fetch_array($idQuery);
 		
@@ -21,16 +21,9 @@
 			
 			$_SESSION['logon'] = true;
 			$_SESSION['userId'] = $id[0];
-			$accountQuery = mysql_fetch_array(mysql_query("SELECT account_admin FROM members WHERE username = '$username' AND password = '$password'", $con));
+			$_SESSION['user'] = $id[1];			
 			
-			if ($accountQuery[0] == 1) {
-				$_SESSION['user'] = 1;
-				header("Location: ../admin_lends.php");
-			}
-			else{
-				$_SESSION['user'] = 0;
-				header("Location: ../user_lends.php");
-			}
+			header("Location: ../user_lends.php");
 			
 		}
 		else die(header("Location: ../error_pages/wrong.html"));	

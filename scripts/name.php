@@ -1,5 +1,4 @@
 <?php
-// 	session_start();
 	include 'db_con.php';
 	
 	$nameQuery = mysql_query("SELECT first_name, last_name FROM members WHERE m_id = $_SESSION[userId]", $con);
