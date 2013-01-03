@@ -15,7 +15,7 @@ include 'html/administration_html_top.php';
 		JOIN lends ON members.m_id = lends.member_id 
 		JOIN items ON lends.item_id = items.i_id
 		WHERE active = 1
-		ORDER BY members.first_name", $con);
+		ORDER BY lends.lend_date DESC", $con);
 		
 		echo "<form action=\"return_list.php\" method=\"post\">";
 		

@@ -43,6 +43,17 @@ FOREIGN KEY (member_id) REFERENCES members(m_id),
 FOREIGN KEY (item_id) REFERENCES items(i_id)
 );
 
+CREATE TABLE transactions(
+`t_id` INT NOT NULL AUTO_INCREMENT,
+`from_user` INT,
+`lend_id` INT,
+`t_quantity` INT,
+`to_user` INT,
+PRIMARY KEY (t_id),
+FOREIGN KEY (from_user) REFERENCES members(m_id),
+FOREIGN KEY (lend_id) REFERENCES lends(l_id),
+FOREIGN KEY (to_user) REFERENCES members(m_id)
+);
 
 INSERT INTO members VALUES
 ('1','Neven','Kristijan','nkristijan','12345','neven.kristijan@gmail.com','0915501394','2012-11-08 11:27:00','1','1'),

@@ -15,14 +15,15 @@ include 'html/user_html_top.php';
 			FROM members
 			JOIN lends ON members.m_id = lends.member_id
 			JOIN items ON lends.item_id = items.i_id
-			WHERE m_id = $userId", $con);
+			WHERE m_id = $userId AND active = 1
+			ORDER BY lend_date DESC", $con);
 			
 		echo "<table id=\"content-table\" cellspacing=\"0\">";
 		echo "<tr class=\"tbl-row\"><td style=\"width:90px;\">Tip</td>
 			<td style=\"width:90px;\">Proizvođač</td>
 			<td style=\"width:90px;\">Model</td>
 			<td style=\"width:110px;\">Boja</td>
-			<td style=\"width:70px;\">Sezona</td>
+			<td style=\"width:70px;\">Količina</td>
 			<td style=\"width:190px;\">Opis</td>
 			<td style=\"width:90px;\">Posuđeno</td>
 			<td style=\"width:90px;\">Vratiti do</td>
@@ -40,13 +41,13 @@ include 'html/user_html_top.php';
 				echo "<td>" . $row['brand'] . "</td>";
 				echo "<td>" . $row['model'] . "</td>";
 				echo "<td>" . $row['color'] . "</td>";
-				echo "<td>" . $row['season'] . "</td>";
+				echo "<td>" . $row['quantity'] . "</td>";
 				echo "<td>" . $row['description'] . "</td>";
 				if(substr($today > $row['return_by'],0,10)) { echo "<td class=\"red\">" . substr($row['lend_date'],0,10) . "</td>
 		       													      <td class=\"red\">" . substr($row['return_by'],0,10) . "</td>"; }
 			    else{ echo "<td>" . substr($row['lend_date'],0,10) . "</td>
 			                <td>" . substr($row['return_by'],0,10) . "</td>";}
-			    echo "<td><input type=\"checkbox\" name=\"transaction[]\" value=\"" . $row['i_id'] . "\"></td>";
+			    echo "<td><input type=\"checkbox\" name=\"transaction-list[]\" value=\"" . $row['i_id'] . "\"></td>";
 				echo  "</tr>";
 		
 		}
