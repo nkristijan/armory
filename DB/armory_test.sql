@@ -55,6 +55,17 @@ FOREIGN KEY (lend_id) REFERENCES lends(l_id),
 FOREIGN KEY (to_user) REFERENCES members(m_id)
 );
 
+CREATE TABLE log(
+`log_id` INT NOT NULL AUTO_INCREMENT,
+`date` DATETIME,
+`user` INT,
+`action` VARCHAR(255),
+`admin` INT,
+FOREIGN KEY (user) REFERENCES members(m_id),
+FOREIGN KEY (admin) REFERENCES members(m_id),
+PRIMARY KEY (log_id)
+);
+
 INSERT INTO members VALUES
 ('1','Neven','Kristijan','nkristijan','12345','neven.kristijan@gmail.com','0915501394','2012-11-08 11:27:00','1','1'),
 ('2','Kruno','Bejuk','kbejuk','12345','kruno.bejuk@gmail.com','091234567','2012-11-08 12:11:00','1','0'),
