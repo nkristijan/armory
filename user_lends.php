@@ -1,6 +1,6 @@
 <?php
+include 'scripts/user_login.php';
 $title = "Moje Posudbe";
-session_start();
 include 'html/user_html_top.php';
 ?>
 

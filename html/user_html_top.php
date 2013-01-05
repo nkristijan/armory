@@ -14,6 +14,7 @@
 		<div>
 			<table id="menu">
 				<tr><td><a href="user_lends.php">Posudbe</a></td>
+				<td><a href="user_items.php">Oprema</a></td>
 				<?php 
 				if($_SESSION["user"]==1) echo "<td style=\"color:red\"><a href=\"items.php\">Administracija</a></td>";
 				?>

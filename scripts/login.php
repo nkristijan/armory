@@ -1,5 +1,6 @@
 <?php
-
+	echo "<meta charset=\"UTF-8\" />";
+	
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
@@ -26,7 +27,12 @@
 			header("Location: ../user_lends.php");
 			
 		}
-		else die(header("Location: ../error_pages/wrong.html"));	
+		else { 
+			echo "<script>window.alert(\"Unjeli ste pogrešno korisničko ime ili zaporku.\")
+					window.location = \"../index.php\"</script>";
+		}
+		
+// 		(header("Location: ../error_pages/wrong.html"));	
 	}
 	
 ?>

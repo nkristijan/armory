@@ -7,7 +7,7 @@
 	
 	<body>
 		<div id="global">
-		<div id="header" style="height:180px;">
+		<div id="header" style="height:180px; margin-top:15px;">
 			<label id="header-text">Oružarstvo</label>
 			<?php
 				echo "<div id=\"login-box\">";
