@@ -10,8 +10,9 @@
 	<body>
 		<div id="global">
 		<div id="header">
+			<div id="header-settings"></div>
 			<label id="header-text">Oružarstvo</label>
-			<label id="header-logout"><a href="edit_member_form.php"><?php names();?></a></label>
+			<label id="header-logout" style="right:-12"><a href="edit_member_form.php">|&nbsp&nbsp<?php names();?></a></label>
 		<div>
 			<table id="menu">
 				<tr><td><a href="items.php">Oprema</a></td>

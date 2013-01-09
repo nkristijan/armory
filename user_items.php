@@ -2,17 +2,38 @@
 include 'scripts/user_login.php'; 
 $title = "Oprema";
 include 'html/user_html_top.php'; 
+
+echo "<script>
+		function nextPage(num){
+			var xmlhttp;
+			xmlhttp = new XMLHttpRequest ();
+			xmlhttp.onreadystatechange=function()
+			  {
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			    {
+			    document.getElementsByClassName(\"content-table\")[0].innerHTML=xmlhttp.responseText;
+				num++;
+				document.getElementById(\"next-page\").onclick = function(){nextPage(num);};
+			    }
+			  }
+			xmlhttp.open(\"POST\",\"scripts/next_page.php?num=\"+num,true);
+			xmlhttp.send();
+		}
+	  </script>";
 ?>
 			
 	<?php
 		include 'scripts\db_con.php';
+		$pageQuery = mysql_query("SELECT i_id FROM items;");
+		$pages = mysql_num_rows($pageQuery)/10+1;
+		$pages = (int)$pages;
+		
 		
 		echo "<div id=\"content-header1\">
 			  </div>";
-		
-		$result =  mysql_query("SELECT * FROM items ORDER BY type", $con);
-		
-		echo "<table id=\"content-table\" cellspacing=\"0\">";
+
+		echo "<table class=\"content-table\" cellspacing=\"0\">";
+		$result =  mysql_query("SELECT * FROM items WHERE i_id < 16 ORDER BY type", $con);
 		echo "<tr class=\"tbl-row\"><td style=\"width:100px;\">Tip</td>
 		<td style=\"width:100px;\">Proizvođač</td>
 		<td style=\"width:100px;\">Model</td>
@@ -20,6 +41,7 @@ include 'html/user_html_top.php';
 		<td style=\"width:80px;\">Sezona</td>
 		<td style=\"width:80px;\">Dostupno</td>
 		<td style=\"width:230px;\">Opis</td></tr>";
+
 		
 		for($i = 0; $row = mysql_fetch_array($result); $i++){
 			
@@ -33,9 +55,12 @@ include 'html/user_html_top.php';
 			echo "<td>" . $row['season'] . "</td>";
 			echo "<td>" . $row['available'] . "/" .$row['quantity'] . "</td>";
 			echo "<td>" . $row['description'] . "</td></tr>";
+
 		}
 		
 		echo "</table>";
+		echo "	<a id=\"next-page\" onclick=\"nextPage(2)\"><div class=\"next\"></div></a>
+				<a id=\"previous-page\" onclick=\"previousPage()\"><div class=\"previous\"></div></a>";
 	?>
 
 <?php include 'html/html_bot.php';?>

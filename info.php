@@ -1,18 +1,30 @@
 <html>
+<head>
+	<script>
+		function nextPage(#){
+			var xmlhttp;
+			xmlhttp = new XMLHttpRequest ();
+			xmlhttp.onreadystatechange=function()
+			  {
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			    {
+			    document.getElementsByClassName("content-table")[0].innerHTML=xmlhttp.responseText;
+				#++;
+				document.getElementById("next-page").onclick = function(){nextPage(#);};
+			    }
+			  }
+			xmlhttp.open("POST","scripts/next_page.php?#="+#,true);
+			xmlhttp.send();
+		}
+	  </script>
+</head>
 	<body>
 		
-		<?php
-		include 'scripts\db_con.php';
-			
+		<div class="content"></div>
 		
-		$query = mysql_query("SELECT quantity FROM lends WHERE l_id=1", $con);
-		$res = mysql_fetch_array($query);
+		<input type="button" onclick="nextPage()" value="napisi">
 		
-		echo $res['quantity'];
 		
-		echo "<br><input type=\"number\">" 
-		
-		?>
 
 	</body>
 </html>

@@ -38,6 +38,17 @@
 	right:10px;
 }
 
+#header-settings{
+	background-image:url('pics/settings.png');
+	height:22px;
+	width:22px;
+	position:relative;
+	float:right;
+	right:190px;
+	top:7px;
+	
+}
+
 #menu{
 	position:relative;
 	left:10px;
@@ -54,7 +65,7 @@ a:link {text-decoration:none;color:inherit;}
 a:visited {text-decoration:none;color:inherit;}
 
 #content{
-	height:auto;
+	height:480px;
 	width:1024px;
 	position:relative;
 	top:8px;
@@ -98,6 +109,17 @@ table#content-table td{
 	height:22px;
 }
 
+table.content-table{
+	position:relative;
+}
+
+table.content-table td{
+	font-family:calibri;
+	text-align:center;
+	font-size:12px;
+	height:22px;
+}
+
 #content-header1{
 	position:relative;
 	top:7px;
@@ -128,6 +150,25 @@ table#content-table td{
 
 .row1{
 	background-color:Silver;
+}
+
+.previous{
+	position:relative;
+	float:right;
+	margin-top:8px;
+	margin-right:5px;
+	width:30px;
+	height:15px;
+	background-image:url('pics/previous.png');	
+}
+
+.next{
+	position:relative;
+	float:right;
+	margin-top:8px;
+	width:30px;
+	height:15px;
+	background-image:url('pics/next.png');	
 }
 
 /***items page**********************************/
