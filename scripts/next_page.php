@@ -6,7 +6,7 @@
 	$high = $page*15+1;
 
 	$result =  mysqli_query($mysqli, "SELECT * FROM items WHERE i_id > $low AND i_id < $high ORDER BY type");
-	$count = mysql_fetch_array($result);
+	$count = mysqli_fetch_array($result);
 	
 
 // 	document.getElementById('next-page').removeAttribute('href');

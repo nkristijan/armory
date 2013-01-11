@@ -7,9 +7,7 @@ include 'html/administration_html_top.php';
 	<?php
 		include 'scripts\db_con.php';
 		
-		echo "<div id=\"content-header1\">
-			  <a href=\"new_member_form.php\"><input type=\"button\" class=\"button1\" value=\"Novi korisnik\"></a>
-			  </div>";
+		echo "<div id=\"content-header1\"></div>";
 		
 		$result =  mysqli_query($mysqli, "SELECT * FROM members ORDER BY first_name");
 		

@@ -38,15 +38,37 @@
 	right:10px;
 }
 
-#header-settings{
+#settings-icon{
 	background-image:url('pics/settings.png');
 	height:22px;
 	width:22px;
 	position:relative;
 	float:right;
-	right:190px;
-	top:7px;
-	
+	right:205px;
+	top:8px;
+}
+
+#settings-icon:hover{
+	cursor:pointer;
+}
+
+#settings-menu{
+	height:46px;
+	width: 120px;
+	position:relative;
+	top: 30px;
+	left:0px;
+	border-radius:5px;
+	background:#788C99;
+	display:none;
+}
+
+#settings-table td{
+	font-family:helvetica;
+	font-size:14px;
+	font-weight:bold;
+	color:#071F33;
+	height:20px;
 }
 
 #menu{
