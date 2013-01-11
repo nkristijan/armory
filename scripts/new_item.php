@@ -13,7 +13,7 @@
 	$query = "INSERT INTO items(type, brand, model, color, season, quantity, available, description) 
 	VALUES('$type', '$brand', '$model', '$color', '$season', '$quantity', '$quantity', '$description')";
 	
-	mysql_query($query,$con);
+	mysqli_query($mysqli, $query);
 
 	echo "<script>window.location = \"../items.php\"</script>";
 	

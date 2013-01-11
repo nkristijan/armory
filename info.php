@@ -5,19 +5,12 @@
 	<body>
 		<?php 
 		
-		$mysqli = new mysqli('localhost', 'root', 'root', 'armory');
+		include 'scripts/db_con.php';
 		
-		if ($mysqli->connect_errno) {
-			echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-		}
+		$idQuery = mysqli_query($mysqli, "SELECT m_id, account_admin FROM members WHERE username = 'nkristijan' AND password = '12345'");
+		$loginResult = mysqli_num_rows($idQuery);
+		echo $loginResult;
 		
-		$res = $mysqli->query("SELECT * FROM members");
-		$count = $res->num_rows;
-		
-		$row = $res->fetch_assoc();
-		
-		echo $count;
-		echo $row['last_name'];
 		
 		?>
 		

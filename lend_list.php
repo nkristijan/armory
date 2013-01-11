@@ -27,8 +27,8 @@ include 'html/administration_html_top.php';
 		
 		$i=0;
 		foreach($_POST['lend-list'] as $check) {
-			$lendQuery = mysql_query("SELECT * FROM items WHERE i_id = " . $check . " ORDER BY type", $con);
-			$lendTable = mysql_fetch_array($lendQuery);
+			$lendQuery = mysqli_query($mysqli, "SELECT * FROM items WHERE i_id = " . $check . " ORDER BY type");
+			$lendTable = mysqli_fetch_array($lendQuery);
 			
 			if($i%2==0) echo "<tr class=\"row1\">";
 			else echo "<tr class=\"row0\">";
@@ -50,8 +50,8 @@ include 'html/administration_html_top.php';
 		echo "<input class=\"submit-items\" type=\"submit\" value=\"Posudi\">";
 		echo "<select class=\"select-user\" name=\"select-user\">";
 		
-			$usernameQuery = mysql_query("SELECT username FROM members", $con);
-			for($i=0; $users = mysql_fetch_array($usernameQuery); $i++){
+			$usernameQuery = mysqli_query($mysqli, "SELECT username FROM members");
+			for($i=0; $users = mysqli_fetch_array($usernameQuery); $i++){
 				echo "<option name=\"user\">" . $users['username'] . "</option>";
 			}
 		

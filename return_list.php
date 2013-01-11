@@ -32,12 +32,12 @@ include 'html/administration_html_top.php';
 		
 		for($i = 0; $i < count($lendId); $i++){
 			
-			$result =  mysql_query("SELECT members.first_name, members.last_name, items.i_id, items.`type`, items.brand, items.model, items.color, items.description, lends.l_id, lends.quantity, lends.lend_date, lends.return_by
+			$result =  mysqli_query($mysqli, "SELECT members.first_name, members.last_name, items.i_id, items.`type`, items.brand, items.model, items.color, items.description, lends.l_id, lends.quantity, lends.lend_date, lends.return_by
 			FROM members
 			JOIN lends ON members.m_id = lends.member_id
 			JOIN items ON lends.item_id = items.i_id
-			WHERE lends.l_id = '$lendId[$i]'", $con);
-			$row = mysql_fetch_array($result);
+			WHERE lends.l_id = '$lendId[$i]'");
+			$row = mysqli_fetch_array($result);
 		
 			if($i==0) {
 				echo "<tr class=\"row0\">";

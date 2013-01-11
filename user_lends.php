@@ -11,12 +11,12 @@ include 'html/user_html_top.php';
 		
 		echo "<div id=\"content-header1\"></div>";
 		
-		$result =  mysql_query("SELECT items.i_id, items.`type`, items.brand, items.model, items.color, items.season, items.description, lends.quantity, lends.lend_date, lends.return_by
+		$result =  mysqli_query($mysqli, "SELECT items.i_id, items.`type`, items.brand, items.model, items.color, items.season, items.description, lends.quantity, lends.lend_date, lends.return_by
 			FROM members
 			JOIN lends ON members.m_id = lends.member_id
 			JOIN items ON lends.item_id = items.i_id
 			WHERE m_id = $userId AND active = 1
-			ORDER BY lend_date DESC", $con);
+			ORDER BY lend_date DESC");
 			
 		echo "<table id=\"content-table\" cellspacing=\"0\">";
 		echo "<tr class=\"tbl-row\"><td style=\"width:90px;\">Tip</td>
@@ -30,7 +30,7 @@ include 'html/user_html_top.php';
 			</tr>";
 			
 			
-		for($i = 0; $row = mysql_fetch_array($result); $i++){
+		for($i = 0; $row = mysqli_fetch_array($result); $i++){
 		
 				if($i%2==0) echo "<tr class=\"row0\">";
 				else echo "<tr class=\"row1\">";

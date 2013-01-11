@@ -11,7 +11,7 @@ include 'html/administration_html_top.php';
 			  <a href=\"new_item_form.php\"><input type=\"button\" class=\"button1\"value=\"Novi predmet\"></a>
 			  </div>";
 		
-		$result =  mysql_query("SELECT * FROM items ORDER BY type", $con);
+		$result =  mysqli_query($mysqli, "SELECT * FROM items ORDER BY type");
 		
 		echo "<table id=\"content-table\" cellspacing=\"0\">";
 		echo "<tr class=\"tbl-row\"><td style=\"width:90px;\">Tip</td>
@@ -23,7 +23,7 @@ include 'html/administration_html_top.php';
 		<td style=\"width:220px;\">Opis</td>
 		<td style=\"width:50px;\">Posudi</td></tr>";
 		
-		for($i = 0; $row = mysql_fetch_array($result); $i++){
+		for($i = 0; $row = mysqli_fetch_array($result); $i++){
 			echo "<form action=\"lend_list.php\" method=\"post\">";
 			if($i%2==0) echo "<tr class=\"row1\">";
 			else echo "<tr class=\"row0\">";

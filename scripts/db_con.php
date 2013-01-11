@@ -1,9 +1,13 @@
 <?php
-
-	$con = mysql_connect("localhost","root","root");
-	if (!$con) die('Could not connect: ' . mysql_error());
-	mysql_set_charset("utf8", $con);
-	mysql_select_db("armory", $con);
+	
+	$mysqli = new mysqli('localhost', 'root', 'root', 'armory');
+	
+	if ($mysqli->connect_errno) {
+		echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+	}
+	
+	$mysqli->set_charset("utf8");
+	
 	date_default_timezone_set('Europe/Zagreb');
 	
 ?>

@@ -24,8 +24,8 @@ echo "<script>
 			
 	<?php
 		include 'scripts\db_con.php';
-		$pageQuery = mysql_query("SELECT i_id FROM items;");
-		$pages = mysql_num_rows($pageQuery)/10+1;
+		$pageQuery = mysqli_query($mysqli, "SELECT i_id FROM items;");
+		$pages = mysqli_num_rows($pageQuery)/10+1;
 		$pages = (int)$pages;
 		
 		
@@ -33,7 +33,7 @@ echo "<script>
 			  </div>";
 
 		echo "<table class=\"content-table\" cellspacing=\"0\">";
-		$result =  mysql_query("SELECT * FROM items WHERE i_id < 16 ORDER BY type", $con);
+		$result =  mysqli_query($mysqli, "SELECT * FROM items WHERE i_id < 16 ORDER BY type");
 		echo "<tr class=\"tbl-row\"><td style=\"width:100px;\">Tip</td>
 		<td style=\"width:100px;\">Proizvođač</td>
 		<td style=\"width:100px;\">Model</td>
@@ -43,7 +43,7 @@ echo "<script>
 		<td style=\"width:230px;\">Opis</td></tr>";
 
 		
-		for($i = 0; $row = mysql_fetch_array($result); $i++){
+		for($i = 0; $row = mysqli_fetch_array($result); $i++){
 			
 			if($i%2==0) echo "<tr class=\"row1\">";
 			else echo "<tr class=\"row0\">";

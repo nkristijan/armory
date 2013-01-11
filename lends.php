@@ -10,12 +10,12 @@ include 'html/administration_html_top.php';
 		
 		echo "<div id=\"content-header1\"></div>";
 		
-		$result =  mysql_query("SELECT members.first_name, members.last_name, items.i_id, items.`type`, items.brand, items.model, items.color, items.description, lends.l_id, lends.quantity, lends.lend_date, lends.return_by
+		$result =  mysqli_query($mysqli, "SELECT members.first_name, members.last_name, items.i_id, items.`type`, items.brand, items.model, items.color, items.description, lends.l_id, lends.quantity, lends.lend_date, lends.return_by
 		FROM members 
 		JOIN lends ON members.m_id = lends.member_id 
 		JOIN items ON lends.item_id = items.i_id
 		WHERE active = 1
-		ORDER BY lends.lend_date DESC", $con);
+		ORDER BY lends.lend_date DESC");
 		
 		echo "<form action=\"return_list.php\" method=\"post\">";
 		
@@ -29,7 +29,7 @@ include 'html/administration_html_top.php';
 		<td style=\"width:90px;\">Vratiti do</td>
 		<td style=\"width:40px;\">Vrati</td></tr>";
 		
-		for($i = 0; $row = mysql_fetch_array($result); $i++){
+		for($i = 0; $row = mysqli_fetch_array($result); $i++){
 			
 			if($i==0) {
 				echo "<tr class=\"row0\">";

@@ -13,9 +13,9 @@
 	else{
 		include 'db_con.php';
 		
-		$idQuery = mysql_query("SELECT m_id, account_admin FROM members WHERE username = '$username' AND password = '$password'", $con);
-		$loginResult = mysql_num_rows($idQuery); 
-		$id = mysql_fetch_array($idQuery);
+		$idQuery = mysqli_query($mysqli, "SELECT m_id, account_admin FROM members WHERE username = '$username' AND password = '$password'");
+		$loginResult = mysqli_num_rows($idQuery); 
+		$id = mysqli_fetch_array($idQuery);
 		
 		if($loginResult > 0){
 			session_start();
@@ -32,7 +32,6 @@
 					window.location = \"../index.php\"</script>";
 		}
 		
-// 		(header("Location: ../error_pages/wrong.html"));	
 	}
 	
 ?>

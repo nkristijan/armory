@@ -7,23 +7,14 @@
 	$phonenumber = $_POST["phonenum"];
 	$password = rand(100000, 999999);
 
-	date_default_timezone_set('Europe/Zagreb');
-	$datecreated = date("Y-m-d H:i:s");
+	include "db_con.php";
 	
-	$con = mysql_connect("localhost","root","root");
-	if (!$con){
-	  die('Could not connect: ' . mysql_error());
-	}
-	mysql_set_charset("utf8", $con);
-	mysql_select_db("armory", $con);
+	$today = date("Y-m-d H:i:s");
 
 	$query = "INSERT INTO members (first_name, last_name, username, password, email, phone_number, date_created, account_active)
-	VALUES ('$firstname', '$lastname', '$username', '$password', '$email', '$phonenumber', '$datecreated', '1')";
+	VALUES ('$firstname', '$lastname', '$username', '$password', '$email', '$phonenumber', '$today', '1')";
 
-	if (!mysql_query($query,$con))
-	  {
-	  die('Error: ' . mysql_error());
-	  }
+	mysqli_query($mysqli, $query);
 
 	echo "<script>window.location = \"../members.php\"</script>";
 	mysql_close($con);

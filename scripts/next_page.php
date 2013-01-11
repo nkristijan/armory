@@ -5,7 +5,7 @@
 	$low = ($page-1)*15;
 	$high = $page*15+1;
 
-	$result =  mysql_query("SELECT * FROM items WHERE i_id > $low AND i_id < $high ORDER BY type", $con);
+	$result =  mysqli_query($mysqli, "SELECT * FROM items WHERE i_id > $low AND i_id < $high ORDER BY type");
 	$count = mysql_fetch_array($result);
 	
 
@@ -20,7 +20,7 @@
 		<td style=\"width:230px;\">Opis</td></tr>";
 
 		
-		for($i = 0; $row = mysql_fetch_array($result); $i++){
+		for($i = 0; $row = mysqli_fetch_array($result); $i++){
 			
 			if($i%2==0) echo "<tr class=\"row1\">";
 			else echo "<tr class=\"row0\">";

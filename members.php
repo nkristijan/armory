@@ -11,7 +11,7 @@ include 'html/administration_html_top.php';
 			  <a href=\"new_member_form.php\"><input type=\"button\" class=\"button1\" value=\"Novi korisnik\"></a>
 			  </div>";
 		
-		$result =  mysql_query("SELECT * FROM members ORDER BY first_name", $con);
+		$result =  mysqli_query($mysqli, "SELECT * FROM members ORDER BY first_name");
 		
 		echo "<table id=\"content-table\" cellspacing=\"0\">";
 		echo "<tr class=\"tbl-row\"><td style=\"width:110px;\">Ime</td>
@@ -22,7 +22,7 @@ include 'html/administration_html_top.php';
 		<td style=\"width:80px;\">Aktivan</td>
 		<td style=\"width:80px;\">Editiraj</td></tr>";
 		
-		for($i = 0; $row = mysql_fetch_array($result); $i++){
+		for($i = 0; $row = mysqli_fetch_array($result); $i++){
 			if($i%2==0) echo "<tr class=\"row1\">";
 			else echo "<tr class=\"row0\">";
 			
