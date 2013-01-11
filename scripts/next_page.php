@@ -4,9 +4,13 @@
 	$page = $_GET['num'];
 	$low = ($page-1)*15;
 	$high = $page*15+1;
+
+	$result =  mysql_query("SELECT * FROM items WHERE i_id > $low AND i_id < $high ORDER BY type", $con);
+	$count = mysql_fetch_array($result);
 	
+
+// 	document.getElementById('next-page').removeAttribute('href');
 	echo "<table class=\"content-table\" cellspacing=\"0\">";
-		$result =  mysql_query("SELECT * FROM items WHERE i_id > $low AND i_id < $high ORDER BY type", $con);
 		echo "<tr class=\"tbl-row\"><td style=\"width:100px;\">Tip</td>
 		<td style=\"width:100px;\">Proizvođač</td>
 		<td style=\"width:100px;\">Model</td>
